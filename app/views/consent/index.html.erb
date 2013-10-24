@@ -31,21 +31,16 @@
 
   <p>
     By participating in this research study you can make an important
-    contribution to gay and bisexual men's health and earn five dollars
+    contribution to the health of RIT students and earn five dollars
     or more at Amazon.com for doing so. This online survey is being 
-    conducted by researchers from the University of Rochester, the 
-    Rochester Institute of Technology and Drexel University. This 
+    conducted by researchers here at the 
+    Rochester Institute of Technology. This 
     study is intended to show that online social networks such as 
-    Facebook can be used to understand the health and needs of gay 
-    and bisexual men. We estimate that approximately 900 people will 
-    take part in this study which includes a brief survey which should 
-    take five to ten minutes to complete. At the end of the survey you 
-    will have the chance to ask up to three of your friends who you 
-    think would be eligible and willing to also participate.  
+    Facebook can be used to facilitate healthy lifestyles,
+    particularly with respect to sexual health. 
   </p>
 
-  <p> Your recruit code is: <%= @recruitee_coupon %> </p>
-
+  
   <%= form_for @student, :url => { :controller => 'consent', :action => 'info_letter' } do |f| %>
 
   
@@ -53,8 +48,8 @@
 
       <%= label_tag 'school', 'Which school do you attend?'%>
     <p>
-      <%= f.radio_button :student_type, "RIT" %> RIT
-      <%= f.radio_button :student_type, "NTID" %> NTID
+      <%= f.radio_button :student_type, "RIT" %> RIT CAST/CHST/CIAS/COB/COS/COLA/GCCIS/KGCOE
+      <%= f.radio_button :student_type, "RIT NTID" %> NTID
     <%= f.radio_button  :student_type, "NEITHER"%> Neither
     </p>
  <p>

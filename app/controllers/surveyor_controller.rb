@@ -1,7 +1,7 @@
 # encoding: UTF-8
 module SurveyorControllerCustomMethods
   def self.included(base)
-#    base.send :layout, 'surveyor_custom'
+    base.send :layout, 'surveyor_custom'
   end
 end
 
@@ -11,7 +11,7 @@ class SurveyorController < ApplicationController
 
 
   def surveyor_finish
-    recruit_index_path
+    thanks_index_path
   end
 
   def create
