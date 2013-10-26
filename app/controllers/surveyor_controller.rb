@@ -22,18 +22,17 @@ class SurveyorController < ApplicationController
         @survey = surveys.where(:survey_version => params[:survey_version]).first
       end
       
-     ### Here is the original code to initialize a response set.
-     # @response_set = ResponseSet.
-     #   create(:survey => @survey, :user_id => (@current_user.nil? ? @current_user : @current_user.id))
+      ### Initialize a response set after first getting the facebook id of the user.
       require_fb_graph_authentication
       @response_set = ResponseSet.find_or_create_by_survey_id_and_user_id(@survey.id, 
                                                                           facebook_user.facebook_account_number)
       @response_set.user_id = facebook_user.facebook_account_number
 
-      student = Student.find_or_create_by_response_set_id(@response_set.id)
-      student.response_set_id = @response_set.id
-      student.facebook_user_id = facebook_user.id
-      student.save
+      facebook_response_set = FacebookResponseSet.find_or_create_by_response_set_id(@response_set.id)
+      facebook_response_set.facebook_user_id = facebook_user.id
+      facebook_response_set.save
+
+      save_relationships
 
       if (@survey && @response_set)
         flash[:notice] = t('surveyor.survey_started_success')

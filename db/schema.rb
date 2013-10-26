@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130915165702) do
+ActiveRecord::Schema.define(:version => 20131023165702) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(:version => 20130915165702) do
 
   add_index "facebook_friendships", ["higher_facebook_user_id"], :name => "index_facebook_friendships_on_higher_facebook_user_id"
   add_index "facebook_friendships", ["lower_facebook_user_id"], :name => "index_facebook_friendships_on_lower_facebook_user_id"
+
+  create_table "facebook_response_sets", :force => true do |t|
+    t.integer  "facebook_user_id"
+    t.integer  "response_set_id"
+    t.string   "recruitee_coupon"
+    t.string   "recruiter_coupon"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "facebook_users", :force => true do |t|
     t.integer  "so_facebook_user_id"

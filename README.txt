@@ -61,3 +61,4 @@ RUNNING THE APP (on a development machine)
 
     rake facebooker:tunnel:start
 
+kill -9 `sudo lsof -t -i:7007`
