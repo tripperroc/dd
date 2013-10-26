@@ -32,7 +32,12 @@ class SurveyorController < ApplicationController
       facebook_response_set.facebook_user_id = facebook_user.id
       facebook_response_set.save
 
-      save_relationships
+      begin
+        save_relationships
+      rescue FbGraph::Unauthorized => e
+        authenticate_with_fb_graph
+        save_relationships        
+      end 
 
       if (@survey && @response_set)
         flash[:notice] = t('surveyor.survey_started_success')
