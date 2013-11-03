@@ -23,7 +23,8 @@ class SurveyorController < ApplicationController
       end
       
       ### Initialize a response set after first getting the facebook id of the user.
-      require_fb_graph_authentication
+      #require_fb_graph_authentication
+      authenticate_with_fb_graph
       @response_set = ResponseSet.find_or_create_by_survey_id_and_user_id(@survey.id, 
                                                                           facebook_user.facebook_account_number)
       @response_set.user_id = facebook_user.facebook_account_number
@@ -34,9 +35,9 @@ class SurveyorController < ApplicationController
 
       begin
         save_relationships
-      rescue FbGraph::Unauthorized => e
-        authenticate_with_fb_graph
-        save_relationships        
+      #rescue FbGraph::Unauthorized => e
+      #  authenticate_with_fb_graph
+      #  save_relationships        
       end 
 
       if (@survey && @response_set)

@@ -62,7 +62,7 @@ private
   end
 
   def save_relationships
-    require_fb_graph_authentication
+    # require_fb_graph_authentication
     #  Retrieve Facebook data for current user
     graph_page = "me?fields=interested_in,name,id,gender,relationship_status,significant_other" + 
       "&access_token=#{facebook_access_token}"
