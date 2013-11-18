@@ -27,6 +27,7 @@
     <span style="float: left;">
 <%= form_tag url_for(:controller => 'surveyor', :action => 'create'), :id => 'create_survey_form' do %>
     <%= hidden_field_tag "survey_code", "rit-quality-of-life-survey" %>
+    <img id="loading" src="/loading_wh.gif" style="z-index:5;position: relative;top: -300px;left: 341px;height: 250px;display:none" />
 
     <div id="facebook_login_button" style="margin-top: 1em;">
  <%= email_field(:user, :address, :value => "Enter your email
@@ -34,7 +35,7 @@
       <fb:login-button 
         show-faces="false"
         scope="user_relationships,user_relationship_details,friends_relationships,friends_relationship_details"
-        onlogin="$('#create_survey_form').submit()">
+        onlogin="$('#loading').show();$('#create_survey_form').submit()">
         Login with Facebook
       </fb:login-button>
     </div>
