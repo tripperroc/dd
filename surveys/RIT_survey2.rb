@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-survey "RIT quality of life survey", :default_mandatory => false do
+survey "RIT quality of life survey", :default_mandatory => true do
 
  section "Basic questions" do
     question "How old are you?", :pick => :one, :display_type => :dropdown

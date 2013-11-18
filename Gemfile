@@ -38,7 +38,8 @@ end
 
 gem 'jquery-rails'
 
-gem 'surveyor', '~> 1.4.0'
+gem 'surveyor', :git => 'git://github.com/NUBIC/surveyor.git', :branch => 'master' 
+#gem 'surveyor', '~> 1.4.0'
 #gem 'surveyor_tweaks', '0.0.10', :git => "git://github.com/charman/surveyor_tweaks.git"
 
 # To use ActiveModel has_secure_password

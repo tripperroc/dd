@@ -34,4 +34,15 @@ RITSurv::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.smtp_settings = {
+   :address => 'mailhost.cs.rit.edu',
+   :port => 587,
+   :domain => 'cs.rit.edu',
+   :user_name => 'cmh',
+   :password =>  'iT5-aca',
+   :authentication => 'plain',
+   :enable_starttls_auto => true 
+  }
+
 end

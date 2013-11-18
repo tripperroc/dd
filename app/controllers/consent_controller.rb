@@ -3,15 +3,7 @@ class ConsentController < ApplicationController
   def info_letter
 
     if request.post?
-#      if @student =  Student.create(params[:student])
-#        if !@student.eligible?
-#          redirect_to :action => 'not_eligible'
-#        end 
-      if @student =  params[:student]
-#        if !@student.eligible?
-#          redirect_to :action => 'not_eligible'
-#        end 
-#        session[:student_id] = @student.id
+      if @student =  params[:student] and  @student[:student_type] == "RIT"
       else
          redirect_to :action => 'not_eligible'
       end

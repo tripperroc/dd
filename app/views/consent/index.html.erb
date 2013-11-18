@@ -44,13 +44,12 @@
   <%= form_for @student, :url => { :controller => 'consent', :action => 'info_letter' } do |f| %>
 
   
-      <span style="margin-left: 2em;"></span>
+  
 
       <%= label_tag 'school', 'Which school do you attend?'%>
     <p>
-      <%= f.radio_button :student_type, "RIT" %> RIT CAST/CHST/CIAS/COB/COS/COLA/GCCIS/KGCOE
-      <%= f.radio_button :student_type, "RIT NTID" %> NTID
-    <%= f.radio_button  :student_type, "NEITHER"%> Neither
+      <%= f.radio_button :student_type, "RIT" %> RIT
+   <%= f.radio_button  :student_type, "OTHER"%> Other
     </p>
  <p>
       <%= submit_tag "Check eligibility" %>
