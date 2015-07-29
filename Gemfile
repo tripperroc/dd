@@ -11,7 +11,8 @@ group :test do
   gem 'sqlite3'
 end
 
-
+gem 'strong_parameters'
+gem 'daemons'
 gem 'json'
 
 # Gems used only for assets and not required
@@ -60,3 +61,4 @@ gem 'debugger', :platform => :ruby_19
 
 gem 'facebooker2', "~> 0.0.17"
 gem 'fb_graph'
+gem 'delayed_job_active_record'

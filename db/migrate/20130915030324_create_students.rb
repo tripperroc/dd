@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration
       t.integer :facebook_user_id
       t.integer :response_set_id
       t.string :student_type
+      t.string :gender
      end
   end
 

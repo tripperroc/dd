@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131023165702) do
+ActiveRecord::Schema.define(:version => 20150419183735) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -39,6 +39,22 @@ ActiveRecord::Schema.define(:version => 20131023165702) do
   end
 
   add_index "answers", ["api_id"], :name => "uq_answers_api_id", :unique => true
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "dependencies", :force => true do |t|
     t.integer  "question_id"
@@ -185,6 +201,7 @@ ActiveRecord::Schema.define(:version => 20131023165702) do
     t.integer "facebook_user_id"
     t.integer "response_set_id"
     t.string  "student_type"
+    t.string  "gender"
   end
 
   create_table "survey_sections", :force => true do |t|

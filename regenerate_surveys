@@ -1,8 +1,10 @@
 #!/bin/bash
+RAILS_ENV=development script/delayed_job stop
 
 #mysql -u root --password=borkborkbork -e "DROP DATABASE IF EXISTS redssocs"
 #mysql -u root --password=borkborkbork -e "CREATE DATABASE redssocs DEFAULT CHARACTER SET utf8"
 #mysql -u root --password=borkborkbork -e "GRANT ALL ON redssocs.* TO 'redssocs'@'localhost' IDENTIFIED BY 'redssocs'"
+rm db/schema.rb
 rake db:reset
 #mysql -u root -e "DROP DATABASE IF EXISTS redssocs"
 #mysql -u root -e "CREATE DATABASE redssocs DEFAULT CHARACTER SET utf8"
@@ -11,3 +13,5 @@ rake db:reset
 rake db:migrate
 rake surveyor FILE=surveys/kitchen_sink_survey.rb
 rake surveyor FILE=surveys/RIT_survey2.rb
+RAILS_ENV=development script/delayed_job start
+

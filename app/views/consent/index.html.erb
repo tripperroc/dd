@@ -28,7 +28,6 @@
 <div style="margin-left: 3em; margin-right: 3em;">
 
   <h1>Welcome!</h1>
-
   <p>
     By participating in this research study you can make an important
     contribution to the health of RIT students and earn five dollars
@@ -42,14 +41,17 @@
 
   
   <%= form_for @student, :url => { :controller => 'consent', :action => 'info_letter' } do |f| %>
-
-  
-  
-
       <%= label_tag 'school', 'Which school do you attend?'%>
     <p>
       <%= f.radio_button :student_type, "RIT" %> RIT
+     <%= f.radio_button :student_type, "NTID"%> NTID
    <%= f.radio_button  :student_type, "OTHER"%> Other
+    </p>
+      <%= label_tag 'gender', 'What is your gender?'%>
+    <p>
+      <%= f.radio_button :gender, "Male" %> Male
+     <%= f.radio_button :gender, "Female"%> Female
+     <%= f.radio_button :gender, "Female"%> Other
     </p>
  <p>
       <%= submit_tag "Check eligibility" %>
