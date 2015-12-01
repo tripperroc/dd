@@ -38,14 +38,13 @@ survey "RIT quality of life survey", :default_mandatory => true do
 	a "In a relationship (but NOT living with boyfriend or girlfriend)"
 	a "In a relationship and living with boyfriend or girlfriend"
 	a "Married"
-	a "Separated (How long? (MM/YY))", :string
- 	a "Divorced (How long? (MM/YY)", :string
+	a "Separated (Since when? (MM/YY))", :string
+ 	a "Divorced (Since when? (MM/YY))", :string
    	a "Widowed"
 
     q_6 "Are you a _______________?", :pick => :one
 	a "U.S. student"
-	a "International student"
-      	a "Community member (not a student)"
+	a "International student. Which country?", :string
  end
 
  section "Hearing Status and Language" do
@@ -96,7 +95,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
         a_1 "Yes"
         a_2 "No" 
    
-   q_10 "Which languages do you use? (Check all that apply)", :pick => :one
+   q_10 "Which languages do you use? (Check all that apply)", :pick => :any
     dependency :rule => "A or B"
     condition_A :q_7, "==", :a_1
     condition_B :q_7, "==", :a_2
@@ -131,15 +130,17 @@ survey "RIT quality of life survey", :default_mandatory => true do
 	a "After birth, age:", :integer
 	a "Never learned Spoken English"
 
-      q_14 "How old did you start to learn written English?", :pick => :one
+      q_14 "How old did you start to learn written English?"
     dependency :rule => "A or B"
     condition_A :q_7, "==", :a_1
     condition_B :q_7, "==", :a_2
 	a "Age:", :integer
-    
-    q_14b "Is anyone in your family deaf?", :pick => :one
+   
+ 
+    q_14b "Is anyone other than you in your family deaf?", :pick => :one
     a_1 "Yes"
     a_2 "No"
+
 
       q_15 "Is your mother deaf?", :pick => :one
     dependency :rule => "E"
@@ -182,7 +183,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
    repeater "Tell us about your deaf sisters. What are their ages?" do 
     dependency :rule => "A"
     condition_A :q_18, "==", :a_1
-    q_18b1 "Ages:"
+    q_18b1 "Age:"
       a :string
    end
     
@@ -199,7 +200,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
    
 
   
-     q_20a "Which do you prefer to use with each person?<br>...your mother? (Choose only one)", :pick => :one
+     q_20a "Which language do you prefer to use with each person?<br>...your mother? (Choose only one)", :pick => :one
     dependency :rule => "E"
     condition_E :q_14b, "==", :a_1
 	a "ASL"
@@ -227,7 +228,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
 	a "Other:", :string
        	a "N/A (I do not have any brothers or sisters)"
 
-     grid "Please rate the following statments (0 = Not At ALL to 10 = VERY MUCH.)" do
+     grid "Please rate the following statements (0 = Not At ALL to 10 = VERY MUCH.)" do
      dependency :rule => "A or B"
      condition_A :q_7, "==", :a_1
      condition_B :q_7, "==", :a_2
@@ -296,6 +297,12 @@ survey "RIT quality of life survey", :default_mandatory => true do
 	a "I do not know"
     end
     section "Sexual Health Information" do
+      q_25a "Which of the categories best describes you?", :pick => :one 
+ 	a "Heterosexual (straight)" 
+ 	a "Gay" 
+ 	a "Bisexual" 
+ 	a "Not sure"
+
       q_25 "Did you take a seminar class on health and sexuality education for your freshman year at NTID/RIT?", :pick => :one
 	a "Yes"
 	a "No"
@@ -322,7 +329,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
 				a "Withdrawal"
 				a "Other: ", :string
       
-      q_30 "Last six months you used condoms when having vagina sex?",:pick => :any
+      q_30 "Last six months you used condoms when having vagina sex?",:pick => :one
          dependency :rule => "A"
          condition_A :q_26a, "==", :a_y
         a "Always"
@@ -331,7 +338,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
 	a "Rarely"
 	a "Never"
 
-      q_30a "Last six months you used birth control when having vagina sex?",:pick => :any
+      q_30a "Last six months you used birth control when having vagina sex?",:pick => :one
          dependency :rule => "A"
          condition_A :q_26a, "==", :a_y
         a "Always"
@@ -372,17 +379,17 @@ survey "RIT quality of life survey", :default_mandatory => true do
 				a "Dental Dam"
 				a "Withdrawal"
 				a "Other: ", :string
-       q_36 "With how many different partners have you ever had oral intercourse?"
+       q_36 "With how many different partners have you ever had oral sex?"
          dependency :rule => "A"
          condition_A :q_26b, "==", :a_y
 	a "# of Partners: ", :string
 
-        q_36a "In past year, how many partners you had oral intercourse with?"
+        q_36a "In past year, how many partners you had oral sex with?"
          a "# of Partners: ", :string
          dependency :rule => "A"
          condition_A :q_26b, "==", :a_y
 
-       q_33 "Last six months you used Dental Dam when having oral sex?",:pick => :any
+       q_33 "Last six months you used Dental Dam when having oral sex?",:pick => :one
          dependency :rule => "A"
          condition_A :q_26b, "==", :a_y
 	a "Always"
@@ -424,7 +431,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
 	 a "# of Partners: ", :string
 
 
-     q_32   "Last six months you used condoms when having anal or asshole sex?",:pick => :any
+     q_32   "Last six months you used condoms when having anal or asshole sex?",:pick => :one
         dependency :rule => "A"
          condition_A :q_26c, "==", :a_y
 	a "Always"
@@ -461,19 +468,12 @@ survey "RIT quality of life survey", :default_mandatory => true do
 				a "Withdrawal"
 				a "Other: ", :string
 
-     q_34b "Are you male or female?", :pick => :one
-       a_m "Male"
-       a_f "Female"
 
        q_40 "Have you ever gotten a woman pregnant?", :pick => :one
-         dependency :rule => "A"
-         condition_A :q_34b, "==", :a_m
 	a "No"
 	a "Yes: How many times?" , :string
        
        q_41 "Have you become pregnant before?", :pick => :one
-         dependency :rule => "A"
-         condition_A :q_34b, "==", :a_f
 	a "No"
 	a_yes "Yes: How many times?" , :string
        
@@ -496,8 +496,7 @@ survey "RIT quality of life survey", :default_mandatory => true do
          a "No"
 	 a "Yes: How many? ", :string
 
-      q_41d "Do you have kids?", :pick => :one
-	a "No"
+      q_41d "Do you have kids?", :pick => :any
          a "Yes, biological: How many? ", :string
          a "Yes, adopted: How many? ", :string
 
@@ -557,7 +556,6 @@ survey "RIT quality of life survey", :default_mandatory => true do
       q "Okcupid", :pick => :one
       q "Badoo", :pick => :one
       q "Jab", :pick => :one
-      q "Other", :pick => :one
     end
     grid "Choose any device (e.g., pager) you use for social networking" do
       a "Hourly"
@@ -576,7 +574,6 @@ survey "RIT quality of life survey", :default_mandatory => true do
       q "Apple Desktop", :pick => :one
       q "Windows Desktop", :pick => :one
       q "Linux Desktop", :pick => :one
-      q "Other (please specify)", :pick => :one
      end
      grid "Please rate the following statements (1 = strongly disagree to 5 = strongly agree.)" do
      a "1"

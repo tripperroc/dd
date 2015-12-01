@@ -31,27 +31,56 @@
   <p>
     By participating in this research study you can make an important
     contribution to the health of RIT students and earn five dollars
-    or more at Amazon.com for doing so. This online survey is being 
+    at Amazon.com for doing so. This online survey is being 
     conducted by researchers here at the 
-    Rochester Institute of Technology. This 
-    study is intended to show that online social networks such as 
+    Rochester Institute of Technology. We
+    are studying whether online social networks such as 
     Facebook can be used to facilitate healthy lifestyles,
     particularly with respect to sexual health. 
   </p>
 
   
   <%= form_for @student, :url => { :controller => 'consent', :action => 'info_letter' } do |f| %>
-      <%= label_tag 'school', 'Which school do you attend?'%>
+      <%= label_tag 'school', 'Which college do you attend?'%>
     <p>
-      <%= f.radio_button :student_type, "RIT" %> RIT
-     <%= f.radio_button :student_type, "NTID"%> NTID
+<%= f.radio_button :student_type, "CAST" %> College of Applied Science and Technology
+</br>
+<%= f.radio_button :student_type, "COB" %> Saunders College of Business
+</br>
+
+<%= f.radio_button :student_type, "GCCIS" %> B. Thomas Golisano College of Computing and Information Sciences
+</br>
+
+<%= f.radio_button :student_type, "KGCE" %> Kate Gleason College of Engineering
+</br>
+
+<%= f.radio_button :student_type, "CHST" %> College of Health Sciences and Technology
+</br>
+
+<%= f.radio_button :student_type, "CIAS" %> College of Imaging Arts and Sciences
+</br>
+
+<%= f.radio_button :student_type, "CLA" %> College of Liberal Arts
+</br>
+
+<%= f.radio_button :student_type, "NTID" %> National Technical Institute for the Deaf
+</br>
+
+<%= f.radio_button :student_type, "COS" %> College of Science
+</br>
    <%= f.radio_button  :student_type, "OTHER"%> Other
     </p>
       <%= label_tag 'gender', 'What is your gender?'%>
     <p>
       <%= f.radio_button :gender, "Male" %> Male
+</br>
      <%= f.radio_button :gender, "Female"%> Female
-     <%= f.radio_button :gender, "Female"%> Other
+</br>
+      <%= f.radio_button :gender, "Male-to-Female" %> Transgender, male-to-female
+</br>
+     <%= f.radio_button :gender, "Female-to-Male"%> Transgender, female-to-male 
+</br>
+     <%= f.radio_button :gender, "Other"%> Other
     </p>
  <p>
       <%= submit_tag "Check eligibility" %>

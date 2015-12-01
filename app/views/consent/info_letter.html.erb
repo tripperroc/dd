@@ -13,9 +13,8 @@
 <div style="margin-left: 5em; margin-right: 5em;">
 
   <div style="margin-top: 1em; font-size: 1.2em;">
-    You are eligible to take this survey!
-    Please read the following information below and when 
-    you have done so login with facebook IF you AGREE to participate.
+    You are eligible (so far) to take this survey!
+    Please read the following information below. 
   </div>
 
   <div style="margin-top: 1em; margin-bottom: 1em;">
@@ -30,14 +29,15 @@
     <img id="loading" src="/loading_wh.gif" style="z-index:5;position: relative;top: -300px;left: 341px;height: 250px;display:none" />
 
     <div id="facebook_login_button" style="margin-top: 1em;">
- <%= email_field(:user, :address, :value => "Enter your email
+ <%= email_field(:user, :address, :value => "Enter your RIT email
  address", :id => "email") %> 
       <fb:login-button 
         show-faces="false"
-        scope="user_relationships,user_relationship_details,friends_relationships,friends_relationship_details"
+        scope="user_relationships,user_relationship_details"
         onlogin="$('#loading').show();$('#create_survey_form').submit()">
         Login with Facebook
       </fb:login-button>
+    <-- Click here to login with Facebook IF you AGREE to participate.
     </div>
   <% end %>
 <p>
