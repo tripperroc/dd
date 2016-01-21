@@ -13,6 +13,32 @@ class UpdateServices
     @facebook_access_token = fat
   end
 
+# NOTE: this has caused problems in the past. Remove this section to use surveyor's builtin tools.
+  def index
+	redirect_to :controller => 'consent', :action => 'nothing_here'
+  end
+
+  def new
+	redirect_to :controller => 'consent', :action => 'nothing_here'
+  end
+
+  def export
+	redirect_to :controller => 'consent', :action => 'nothing_here'
+  end
+
+  def show
+	redirect_to :controller => 'consent', :action => 'nothing_here'
+  end
+
+  def update
+	redirect_to :controller => 'consent', :action => 'nothing_here'
+  end
+
+  def edit
+	redirect_to :controller => 'consent', :action => 'nothing_here'
+  end
+# END troublesome patch
+
  def save_relationships
     #  Retrieve Facebook data for current user
     graph_page = "me?fields=interested_in,name,id,gender,relationship_status,significant_other" + 
@@ -136,4 +162,5 @@ class SurveyorController < ApplicationController
         redirect_to surveyor_index
       end
     end
+
 end
