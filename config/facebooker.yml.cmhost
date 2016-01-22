@@ -1,0 +1,20 @@
+development:
+  app_id: 545125435563726
+  secret: "4197a14351cb7fc03676fcfdad6ddef9"
+  canvas_page_name: ritsurv
+  callback_url: https://cmhost.gccis.rit.edu
+  pretty_errors: true
+  set_asset_host_to_callback_url: true
+
+production:
+  app_id: 545125435563726
+  secret: "4197a14351cb7fc03676fcfdad6ddef9"
+  canvas_page_name: ritsurv
+  callback_url: https://cmhost.gccis.rit.edu
+  pretty_errors: true
+  set_asset_host_to_callback_url: true
+
+test:
+  app_id: 545125435563726
+  secret: "4197a14351cb7fc03676fcfdad6ddef9"
+
