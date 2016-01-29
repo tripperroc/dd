@@ -455,14 +455,14 @@ survey "RIT quality of life survey", :default_mandatory => true do
 
        q_26c1_2 "When you had anal sex the first time how old were you?"
          dependency :rule => "A and B"
-         condition_A :q_26c, "==", :a_y
+         condition_A :q_26c_2, "==", :a_y
          condition_B :q_7, "!=", :a_1
          a :string
  
 
         q_28_2 "When you had anal sex the first time did you use the following?", :pick => :any
          dependency :rule => "A and B"
-         condition_A :q_26c, "==", :a_y
+         condition_A :q_26c_2, "==", :a_y
          condition_B :q_7, "!=", :a_1
           a "Birth Control Pill" 
           a "Depo Provera"
@@ -475,20 +475,20 @@ survey "RIT quality of life survey", :default_mandatory => true do
       
        q_38_2 "With how many different partners have you ever had anal intercourse?"
          dependency :rule => "A and B"
-         condition_A :q_26c, "==", :a_y
+         condition_A :q_26c_2, "==", :a_y
          condition_B :q_7, "!=", :a_1
   a "# of Partners: ", :string
 
        q_39_2 "In past year, how many different partners you have anal intercourse with?"
          dependency :rule => "A and B"
-         condition_A :q_26c, "==", :a_y
+         condition_A :q_26c_2, "==", :a_y
          condition_B :q_7, "!=", :a_1
    a "# of Partners: ", :string
 
 
      q_32_2   "Last six months you used condoms when having anal sex?",:pick => :one
          dependency :rule => "A and B"
-         condition_A :q_26c, "==", :a_y
+         condition_A :q_26c_2, "==", :a_y
          condition_B :q_7, "!=", :a_1
   a "Always"
   a "Most of the time"
