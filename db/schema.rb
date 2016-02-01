@@ -202,6 +202,7 @@ ActiveRecord::Schema.define(:version => 20150419183735) do
     t.integer "response_set_id"
     t.string  "student_type"
     t.string  "gender"
+    t.string  "year"
   end
 
   create_table "survey_sections", :force => true do |t|

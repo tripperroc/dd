@@ -70,6 +70,19 @@
 </br>
    <%= f.radio_button  :student_type, "OTHER"%> Other
     </p>
+
+    <%= label_tag 'year', 'What year are you in?'%>
+    <p>
+      <%= f.radio_button :year, "First" %> First-year undergrad
+</br>
+     <%= f.radio_button :year, "Second"%> Second-year undergrad
+</br>
+      <%= f.radio_button :year, "Third" %> Third-year undergrad
+</br>
+     <%= f.radio_button :year, "Fourth"%> Fourth-year undergrad
+</br>
+     <%= f.radio_button :year, "Other"%> Other
+    </p>
       <%= label_tag 'gender', 'What is your gender?'%>
     <p>
       <%= f.radio_button :gender, "Male" %> Male

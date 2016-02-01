@@ -13,5 +13,6 @@ rake db:reset
 rake db:migrate
 rake surveyor FILE=surveys/kitchen_sink_survey.rb
 rake surveyor FILE=surveys/RIT_survey.rb
+rake surveyor FILE=surveys/languages.rb
 RAILS_ENV=development script/delayed_job start
 

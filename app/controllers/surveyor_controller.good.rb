@@ -147,25 +147,16 @@ class SurveyorController < ApplicationController
 
 	#save_relationships
 
-
+      @ooga = 17
  
       Delayed::Job.enqueue(UpdateServices.new(facebook_response_set, facebook_access_token), :priority => 0)
 
-      logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-      logger.debug(session[:student_type])
-      logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-      
+
       if (@survey && @response_set)
         flash[:notice] = t('surveyor.survey_started_success')
-        if session[:student_type] == "NTID"
-          logger.debug("/////////////////////////////")
-          logger.debug("should be redirecting correctly")
-        #redirect_to ("/ritsurv/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take")
-          redirect_to ("/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take?locale=ntid")
-        else
-          redirect_to ("/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take")
-        end
-        
+	redirect_to ("/ritsurv/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take")
+        #redirect_to(surveyor.edit_my_survey_path(
+        #  :survey_code => @survey.access_code, :response_set_code  => @response_set.access_code))
       else
         flash[:notice] = t('surveyor.Unable_to_find_that_survey')
         redirect_to surveyor_index

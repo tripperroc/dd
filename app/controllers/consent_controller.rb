@@ -7,9 +7,11 @@ class ConsentController < ApplicationController
 	 @st = Student.new
          @st.student_type = @student[:student_type]
          @st.gender = @student[:gender]
+         @st.year = @student[:year]
          @st.facebook_user_id = 0
          if @st.save
            session[:student_id] = @st.id
+           session[:student_type] = @st.student_type
 	 else
            redirect_to :action => 'not_eligible'
          end

@@ -3,8 +3,8 @@ class Student < ActiveRecord::Base
   @@response_size = 50
   validate :eligible, :too_many
   def eligible
-    if (student_type == "OTHER")
-	errors.add(:student_type, "Not an RIT or NTID student")
+    if (student_type == "OTHER" || year != "First")
+	errors.add(:student_type, "Not an RIT or NTID student or not a First Year")
     end
   end
   def too_many

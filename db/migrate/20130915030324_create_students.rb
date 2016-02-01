@@ -5,6 +5,7 @@ class CreateStudents < ActiveRecord::Migration
       t.integer :response_set_id
       t.string :student_type
       t.string :gender
+      t.string :year
      end
   end
 
