@@ -161,9 +161,9 @@ class SurveyorController < ApplicationController
           logger.debug("/////////////////////////////")
           logger.debug("should be redirecting correctly")
         #redirect_to ("/ritsurv/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take")
-          redirect_to ("/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take?locale=ntid")
+          redirect_to ("/ritsurv/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take?locale=ntid")
         else
-          redirect_to ("/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take")
+          redirect_to ("/ritsurv/surveys/rit-quality-of-life-survey/" + @response_set.access_code + "/take")
         end
         
       else

@@ -1,6 +1,6 @@
 class Student < ActiveRecord::Base
   attr_accessible :student_type
-  @@response_size = 50
+  @@response_size = 5
   validate :eligible, :too_many
   def eligible
     if (student_type == "OTHER" || year != "First")
