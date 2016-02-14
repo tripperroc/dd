@@ -67,7 +67,7 @@ class UpdateServices
     #Delayed::Worker.dj_say "starting"
     File.open("test.txt","w").close
     #@facebook_response.facebook_male_friends = 69
-    @facebook_response.facebook_male_friends = save_relationships
+    #@facebook_response.facebook_male_friends = save_relationships
     @facebook_response.save
 
     #End debugging code

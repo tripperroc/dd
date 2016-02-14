@@ -15,7 +15,7 @@ RITSurv::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -71,7 +71,7 @@ RITSurv::Application.configure do
    :port => 587,
    :domain => 'cs.rit.edu',
    :user_name => 'cmh',
-   :password =>  'iT5-aca',
+   :password =>  'CrazyL4akewOod',
    :authentication => 'plain',
    :enable_starttls_auto => true 
   }

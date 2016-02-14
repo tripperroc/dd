@@ -4,7 +4,6 @@ survey "RIT quality of life survey", :default_mandatory => true do
 
  section "Basic questions" do
     question "How old are you?", :pick => :one, :display_type => :dropdown
-    a "17 or younger"
     a "18"
     a "19"
     a "20"
