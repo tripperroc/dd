@@ -6,6 +6,13 @@
   <title>Survey: <%= controller.action_name %></title>
   <%= surveyor_includes %>
      <style>
+#surveyor * {
+  background-color: rgb(255,255,255);
+}
+
+#surveyor td {
+    text-align: left;
+}
     #surveyor {
       font-family: font-family 'times new roman',tahoma,verdana,arial,sans-serif;
      background-color: white;
@@ -13,6 +20,11 @@
 #surveyor fieldset {
   font-size: 15px;
   color: rgb(51,51,51);
+}
+
+#surveyor legend, span {
+  background-color: rgb(255,255,255);
+
 }
 
 #surveyor fieldset.q_default, fieldset.g_inline, fieldset.g_grid {
@@ -25,6 +37,7 @@
   margin-top: 14px;
   padding-top: 8px;
   padding-bottom: 16px;
+  background-color: rgb(255,255,255);
 }
 
 #surveyor fieldset.choices {

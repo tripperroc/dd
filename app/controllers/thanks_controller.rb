@@ -4,6 +4,7 @@ class ThanksController < ApplicationController
 
   def index   
     #ThankYouMailer.thank_you_email({:email_address => session[:email_address]}).deliver
+    reset_session
   end
 
 end
